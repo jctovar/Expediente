@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Expediente")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Expediente electrónico")]
+[assembly: AssemblyDescription("Sistema para manejo del expediente de pacientes")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Expediente")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Universidad Nacional Autónoma de México")]
+[assembly: AssemblyProduct("Expediente electrónico")]
+[assembly: AssemblyCopyright("UNAM Copyright ©  2017")]
+[assembly: AssemblyTrademark("Universidad Nacional Autónoma de México")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Expediente
 {
-    public partial class Form1 : Form
+    public partial class Paciente : Form
     {
-        public Form1()
+        public Paciente()
         {
             InitializeComponent();
+        }
+
+        private void Paciente_Load(object sender, EventArgs e)
+        {
+            this.Text = Application.ProductName;
         }
     }
 }
