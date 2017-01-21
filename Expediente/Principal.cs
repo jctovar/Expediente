@@ -53,5 +53,17 @@ namespace Expediente
                 e.Cancel = true;
             }
         }
+
+        private void baseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BaseDatos database = new BaseDatos();
+            database.ShowDialog();
+        }
+
+        private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PacientesLista pacientes = new PacientesLista();
+            pacientes.ShowDialog();
+        }
     }
 }

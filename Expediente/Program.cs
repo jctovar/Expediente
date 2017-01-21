@@ -18,6 +18,7 @@ namespace Expediente
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Presentacion());
             Application.Run(new Principal());
+            Properties.Settings.Default.Save();
         }
     }
 }

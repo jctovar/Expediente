@@ -74,7 +74,9 @@
     <Compile Include="Creditos.Designer.cs">
       <DependentUpon>Creditos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database classes\AccountDB.cs" />
     <Compile Include="Database classes\DatabaseConnection.cs" />
+    <Compile Include="Database classes\ScheduleDB.cs" />
     <Compile Include="Database classes\UserDB.cs" />
     <Compile Include="NotaMedica.cs">
       <SubType>Form</SubType>
@@ -84,12 +86,19 @@
     </Compile>
     <Compile Include="Object classes\Account.cs" />
     <Compile Include="Object classes\Note.cs" />
+    <Compile Include="Object classes\Schedule.cs" />
     <Compile Include="Object classes\User.cs" />
     <Compile Include="Paciente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Paciente.Designer.cs">
       <DependentUpon>Paciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacientesLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacientesLista.Designer.cs">
+      <DependentUpon>PacientesLista.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion.cs">
       <SubType>Form</SubType>
@@ -119,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Paciente.resx">
       <DependentUpon>Paciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacientesLista.resx">
+      <DependentUpon>PacientesLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion.resx">
       <DependentUpon>Presentacion.cs</DependentUpon>
