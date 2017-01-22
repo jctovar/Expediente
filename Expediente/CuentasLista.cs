@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Expediente
 {
-    public partial class PacientesLista : Form
+    public partial class CuentasLista : Form
     {
-        public PacientesLista()
+        public CuentasLista()
         {
             InitializeComponent();
         }
 
-        private void PacientesLista_Load(object sender, EventArgs e)
+        private void CuentasLista_Load(object sender, EventArgs e)
         {
             this.Text = Application.ProductName;
 
@@ -27,11 +27,11 @@ namespace Expediente
         private void LoadData()
         {
             DataTable TableView = new DataTable();
-            Database_classes.UserDB userDB = new Database_classes.UserDB();
+            Database_classes.AccountDB accountDB = new Database_classes.AccountDB();
 
             try
             {
-                TableView = userDB.UserGetList();
+                TableView = accountDB.AccountGetList();
 
                 dataGridView1.DataSource = TableView;
                 dataGridView1.Columns[0].Visible = false;
@@ -41,25 +41,6 @@ namespace Expediente
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Ocurrio el siguiente error {0}", ex.Message), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Edit();
-        }
-
-        private void Edit()
-        {
-            Paciente paciente = new Paciente();
-
-            DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
-
-            paciente.Id = Convert.ToInt16(selectedRow.Cells[0].Value);
-
-            if (paciente.ShowDialog() == DialogResult.OK)
-            {
-                LoadData();
             }
         }
     }

@@ -16,5 +16,15 @@ namespace Expediente
         {
             InitializeComponent();
         }
+
+        private void Autentificacion_Load(object sender, EventArgs e)
+        {
+            this.Text = Application.ProductName;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

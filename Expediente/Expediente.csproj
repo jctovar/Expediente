@@ -74,6 +74,12 @@
     <Compile Include="Creditos.Designer.cs">
       <DependentUpon>Creditos.cs</DependentUpon>
     </Compile>
+    <Compile Include="CuentasLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasLista.Designer.cs">
+      <DependentUpon>CuentasLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database classes\AccountDB.cs" />
     <Compile Include="Database classes\DatabaseConnection.cs" />
     <Compile Include="Database classes\ScheduleDB.cs" />
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Autentificacion.resx">
+      <DependentUpon>Autentificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseDatos.resx">
       <DependentUpon>BaseDatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Creditos.resx">
       <DependentUpon>Creditos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasLista.resx">
+      <DependentUpon>CuentasLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NotaMedica.resx">
       <DependentUpon>NotaMedica.cs</DependentUpon>

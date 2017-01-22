@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace Expediente.Database_classes
 {
     class UserDB
     {
-        public Object_classes.User GetUser(string username)
+        public Object_classes.User GetUser(int Id)
         {
             Object_classes.User user = new Object_classes.User();
             DatabaseConnection mydatabase = new DatabaseConnection();
@@ -17,13 +18,13 @@ namespace Expediente.Database_classes
             MySqlCommand cmd = null;
             MySqlDataReader reader = null;
 
-            string sql = "SELECT * FROM alumnos_suayed WHERE ch_alumno_num_cta = ?username";
+            string sql = "SELECT * FROM users WHERE user_id = ?id";
 
             try
             {
                 conn = mydatabase.GetConnection();
                 cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.Add(new MySqlParameter("username", username));
+                cmd.Parameters.Add(new MySqlParameter("id", Id));
 
                 conn.Open();
 
@@ -33,14 +34,12 @@ namespace Expediente.Database_classes
                 {
                     while (reader.Read())
                     {
-                        user.Firstname = reader.GetString("ch_persona_nombre");
-                        user.Lastname = reader.GetString("ch_persona_appaterno") + " " + reader.GetString("ch_persona_apmaterno");
-                        user.Email = reader.GetString("ch_persona_email");
-                        user.Headquarters = reader.GetString("ch_dependencia_nombre");
-                        user.Generation = reader.GetString("nu_alumno_ingreso");
-                        user.Field = reader.GetString("ch_plan_cve");
-                        user.Curp = reader.GetString("ch_persona_curp");
-                        user.Phone = reader.GetString("ch_persona_telefono");
+                        user.Id = reader.GetInt16("user_id");
+                        user.Firstname = reader.GetString("user_firstname");
+                        user.Lastname = reader.GetString("user_lastname");
+                        user.Email = reader.GetString("user_email");
+                        user.Birthday = reader.GetDateTime("user_birthday");
+                        user.Gender = reader.GetInt16("gender_id");
                     }
                 }
                 else
@@ -59,6 +58,115 @@ namespace Expediente.Database_classes
             }
 
             return user;
+        }
+
+        public DataTable UserGetList()
+        {
+            DataTable dt = new DataTable();
+            DatabaseConnection mydatabase = new DatabaseConnection();
+            MySqlConnection conn = null;
+            MySqlCommand cmd = null;
+            MySqlDataReader reader = null;
+
+            string sql = "SELECT user_id,user_firstname,user_lastname,user_email FROM users ORDER BY user_id DESC";
+
+            try
+            {
+                conn = mydatabase.GetConnection();
+                cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (conn != null) conn.Close();
+            }
+
+            return dt;
+        }
+
+        public Boolean UpdateUser(Object_classes.User user)
+        {
+            DataTable dt = new DataTable();
+            DatabaseConnection mydatabase = new DatabaseConnection();
+            MySqlConnection conn = null;
+            MySqlCommand cmd = null;
+
+            string sql = "UPDATE users SET user_firstname=?firstname, user_lastname=?lastname, user_email=?email WHERE user_id = ?id";
+
+            try
+            {
+                conn = mydatabase.GetConnection();
+                cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.Add(new MySqlParameter("firstname", user.Firstname));
+                cmd.Parameters.Add(new MySqlParameter("lastname", user.Lastname));
+                cmd.Parameters.Add(new MySqlParameter("email", user.Email));
+                cmd.Parameters.Add(new MySqlParameter("id", user.Id));
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
+        }
+
+        public DataTable GenderGetList()
+        {
+            DataTable dt = new DataTable();
+            DatabaseConnection mydatabase = new DatabaseConnection();
+            MySqlConnection conn = null;
+            MySqlCommand cmd = null;
+            MySqlDataReader reader = null;
+
+            string sql = "SELECT * FROM gender ORDER BY gender_id"; ;
+
+            try
+            {
+                conn = mydatabase.GetConnection();
+                cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (conn != null) conn.Close();
+            }
+
+            return dt;
         }
     }
 }

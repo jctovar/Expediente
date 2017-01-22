@@ -12,6 +12,8 @@ namespace Expediente.Object_classes
         string varUsername;
         string varFirstname;
         string varLastname;
+        string varEmail;
+        string varPassword;
         public int Id
         {
             get { return this.varId; }
@@ -31,6 +33,16 @@ namespace Expediente.Object_classes
         {
             get { return this.varLastname; }
             set { this.varLastname = value; }
+        }
+        public string Email
+        {
+            get { return this.varEmail; }
+            set { this.varEmail = value; }
+        }
+        public string Password
+        {
+            get { return this.varPassword; }
+            set { this.varPassword = value; }
         }
     }
 }

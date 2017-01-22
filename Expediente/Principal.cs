@@ -31,6 +31,7 @@ namespace Expediente
         private void Principal_Load(object sender, EventArgs e)
         {
             this.Text = Application.ProductName;
+            this.Size = Properties.Settings.Default.main_size;
         }
 
         private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,6 +65,24 @@ namespace Expediente
         {
             PacientesLista pacientes = new PacientesLista();
             pacientes.ShowDialog();
+        }
+
+        private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Autentificacion autentificacion = new Autentificacion();
+            autentificacion.ShowDialog();
+        }
+
+        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.main_size = this.Size;
+            Properties.Settings.Default.Save();
+        }
+
+        private void cuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CuentasLista cuentas = new CuentasLista();
+            cuentas.ShowDialog();
         }
     }
 }

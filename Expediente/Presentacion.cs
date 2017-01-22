@@ -12,8 +12,6 @@ namespace Expediente
 {
     public partial class Presentacion : Form
     {
-        private static System.Timers.Timer aTimer;
-
         public Presentacion()
         {
             InitializeComponent();
@@ -22,8 +20,6 @@ namespace Expediente
         private void Presentacion_Load(object sender, EventArgs e)
         {
             label5.Text = Application.ProductName;
-
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

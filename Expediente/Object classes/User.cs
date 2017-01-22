@@ -9,24 +9,15 @@ namespace Expediente.Object_classes
     class User
     {
         int varId;
-        string varUsername;
         string varFirstname;
         string varLastname;
         string varEmail;
-        string varCurp;
-        string varGeneration;
-        string varField;
-        string varPhone;
-        string varHeadquarters;
+        DateTime varBirthday;
+        int varGender;
         public int Id
         {
             get { return this.varId; }
             set { this.varId = value; }
-        }
-        public string Username
-        {
-            get { return this.varUsername; }
-            set { this.varUsername = value; }
         }
         public string Firstname
         {
@@ -43,30 +34,15 @@ namespace Expediente.Object_classes
             get { return this.varEmail; }
             set { this.varEmail = value; }
         }
-        public string Curp
+        public DateTime Birthday
         {
-            get { return this.varCurp; }
-            set { this.varCurp = value; }
+            get { return this.varBirthday; }
+            set { this.varBirthday = value; }
         }
-        public string Generation
+        public int Gender
         {
-            get { return this.varGeneration; }
-            set { this.varGeneration = value; }
-        }
-        public string Field
-        {
-            get { return this.varField; }
-            set { this.varField = value; }
-        }
-        public string Phone
-        {
-            get { return this.varPhone; }
-            set { this.varPhone = value; }
-        }
-        public string Headquarters
-        {
-            get { return this.varHeadquarters; }
-            set { this.varHeadquarters = value; }
+            get { return this.varGender; }
+            set { this.varGender = value; }
         }
     }
 }

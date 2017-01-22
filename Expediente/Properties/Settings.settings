@@ -14,5 +14,14 @@
     <Setting Name="database" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="account" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="main_size" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">560, 480</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

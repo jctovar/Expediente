@@ -70,5 +70,41 @@ namespace Expediente.Properties {
                 this["database"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string port {
+            get {
+                return ((string)(this["port"]));
+            }
+            set {
+                this["port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string account {
+            get {
+                return ((string)(this["account"]));
+            }
+            set {
+                this["account"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("560, 480")]
+        public global::System.Drawing.Size main_size {
+            get {
+                return ((global::System.Drawing.Size)(this["main_size"]));
+            }
+            set {
+                this["main_size"] = value;
+            }
+        }
     }
 }
