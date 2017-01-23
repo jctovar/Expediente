@@ -104,17 +104,56 @@ namespace Expediente.Database_classes
             MySqlConnection conn = null;
             MySqlCommand cmd = null;
 
-            string sql = "UPDATE users SET user_firstname=?firstname, user_lastname=?lastname, user_email=?email WHERE user_id = ?id";
+            string sql = "UPDATE users SET user_firstname=?firstname, user_lastname=?lastname, user_email=?email, gender_id=?gender, user_birthday=?birthday WHERE user_id = ?id";
 
             try
             {
                 conn = mydatabase.GetConnection();
                 cmd = new MySqlCommand(sql, conn);
 
+                cmd.Parameters.Add(new MySqlParameter("id", user.Id));
                 cmd.Parameters.Add(new MySqlParameter("firstname", user.Firstname));
                 cmd.Parameters.Add(new MySqlParameter("lastname", user.Lastname));
                 cmd.Parameters.Add(new MySqlParameter("email", user.Email));
+                cmd.Parameters.Add(new MySqlParameter("gender", user.Gender));
+                cmd.Parameters.Add(new MySqlParameter("birthday", user.Birthday));
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
+        }
+
+        public Boolean AddUser(Object_classes.User user)
+        {
+            DataTable dt = new DataTable();
+            DatabaseConnection mydatabase = new DatabaseConnection();
+            MySqlConnection conn = null;
+            MySqlCommand cmd = null;
+
+            string sql = "INSERT users SET user_firstname=?firstname, user_lastname=?lastname, user_email=?email, gender_id=?gender, user_birthday=?birthday;";
+
+            try
+            {
+                conn = mydatabase.GetConnection();
+                cmd = new MySqlCommand(sql, conn);
+
                 cmd.Parameters.Add(new MySqlParameter("id", user.Id));
+                cmd.Parameters.Add(new MySqlParameter("firstname", user.Firstname));
+                cmd.Parameters.Add(new MySqlParameter("lastname", user.Lastname));
+                cmd.Parameters.Add(new MySqlParameter("email", user.Email));
+                cmd.Parameters.Add(new MySqlParameter("gender", user.Gender));
+                cmd.Parameters.Add(new MySqlParameter("birthday", user.Birthday));
 
                 conn.Open();
 

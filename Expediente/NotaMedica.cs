@@ -24,7 +24,7 @@ namespace Expediente
 
         private void NotaMedica_Load(object sender, EventArgs e)
         {
-            this.Text = Application.ProductName;
+            Text = Application.ProductName;
         }
     }
 }

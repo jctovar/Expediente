@@ -84,5 +84,25 @@ namespace Expediente
             CuentasLista cuentas = new CuentasLista();
             cuentas.ShowDialog();
         }
+
+        private void altaPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Paciente paciente = new Paciente();
+
+            if (paciente.ShowDialog() == DialogResult.OK)
+            {
+                //LoadData();
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            ingresarToolStripMenuItem.PerformClick();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            pacientesToolStripMenuItem.PerformClick();
+        }
     }
 }

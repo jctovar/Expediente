@@ -34,6 +34,7 @@ namespace Expediente
                 TableView = accountDB.AccountGetList();
 
                 dataGridView1.DataSource = TableView;
+                dataGridView1.AutoResizeColumns();
                 dataGridView1.Columns[0].Visible = false;
 
                 toolStripStatusLabel1.Text = string.Format("Se encontraron {0} registros", TableView.Rows.Count);

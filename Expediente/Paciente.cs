@@ -77,6 +77,8 @@ namespace Expediente
             user.Firstname = textBox1.Text;
             user.Lastname = textBox2.Text;
             user.Email = textBox3.Text;
+            user.Gender = Convert.ToInt16(comboBox1.SelectedValue);
+            user.Birthday = dateTimePicker1.Value;
 
             try
             {
@@ -94,7 +96,16 @@ namespace Expediente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            saveData();
+
+            if (Id != 0)
+            {
+                saveData();
+            }
+            else
+            {
+                addData();
+            }
+            
         }
 
         private void loadGender()
@@ -107,6 +118,31 @@ namespace Expediente
             comboBox1.DataSource = TableView;
             comboBox1.ValueMember = "gender_id";
             comboBox1.DisplayMember = "gender_name";
+        }
+        private void addData()
+        {
+            Object_classes.User user = new Object_classes.User();
+            Database_classes.UserDB userDB = new Database_classes.UserDB();
+
+            user.Id = Id;
+            user.Firstname = textBox1.Text;
+            user.Lastname = textBox2.Text;
+            user.Email = textBox3.Text;
+            user.Gender = Convert.ToInt16(comboBox1.SelectedValue);
+            user.Birthday = dateTimePicker1.Value;
+
+            try
+            {
+                if (userDB.AddUser(user) == true)
+                {
+                    MessageBox.Show("Datos guardados", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Ocurrio el siguiente error {0}", ex.Message), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
